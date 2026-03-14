@@ -29,7 +29,7 @@ async function goProxy(e) {
     // Inject the fetched HTML into the container
     container.innerHTML = html;
 
-    // Optional: adjust relative links so navigation works
+    // Optional: adjust relative links so navigation works inside the container
     const links = container.querySelectorAll("a");
     links.forEach(link => {
       link.target = "_self"; // stay inside container
