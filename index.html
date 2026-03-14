@@ -3,104 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Proxy Search</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-body{
-  margin:0;
-  background:#0f0f0f;
-}
-
-/* container */
+body{ margin:0; background:#0f0f0f; }
 .glass-search-container{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  padding:20px;
-  background:transparent;
-  font-family:'Maven Pro',sans-serif;
-  box-sizing:border-box;
+  width:100%; display:flex; justify-content:center; padding:20px; font-family:'Maven Pro',sans-serif;
 }
-
-/* form wrapper */
-.glass-form{
-  width:100%;
-  max-width:550px;
-}
-
-/* search bar */
+.glass-form{ width:100%; max-width:550px; }
 .glass-search{
-  width:100%;
-  max-width:550px;
-  padding:16px 22px 16px 60px;
-
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,0.25);
-
-  background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M21 20l-4.35-4.35a7.5 7.5 0 10-1 1L20 21zM5 11a6 6 0 1112 0A6 6 0 015 11z'/></svg>")
-    no-repeat 20px center / 24px,
-    linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
-    rgba(20,20,20,0.85);
-
+  width:100%; max-width:550px; padding:16px 22px 16px 60px;
+  border-radius:28px; border:1px solid rgba(255,255,255,0.25);
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M21 20l-4.35-4.35a7.5 7.5 0 10-1 1L20 21zM5 11a6 6 0 1112 0A6 6 0 015 11z'/></svg>") no-repeat 20px center / 24px,
+             linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)), rgba(20,20,20,0.85);
   backdrop-filter:blur(20px) saturate(170%);
   -webkit-backdrop-filter:blur(20px) saturate(170%);
-
-  color:white;
-  font-size:18px;
-
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.25),
-    inset 0 -1px 1px rgba(0,0,0,0.45),
-    0 8px 28px rgba(0,0,0,0.5);
-
-  outline:none;
-  transition: all 0.4s ease;
-  font-family:'Maven Pro',sans-serif;
+  color:white; font-size:18px; box-shadow: inset 0 1px 1px rgba(255,255,255,0.25),
+              inset 0 -1px 1px rgba(0,0,0,0.45), 0 8px 28px rgba(0,0,0,0.5);
+  outline:none; transition: all 0.4s ease; font-family:'Maven Pro',sans-serif;
 }
-
 .glass-search:hover{
-  box-shadow:
-    inset 0 0 12px rgba(255,255,255,0.4),
-    inset 0 -1px 1px rgba(0,0,0,0.45),
-    0 8px 28px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.4), inset 0 -1px 1px rgba(0,0,0,0.45), 0 8px 28px rgba(0,0,0,0.5);
 }
+.glass-search::placeholder{ color:rgba(255,255,255,0.65); }
+.glass-search:focus{ border:1px solid rgba(255,255,255,0.45); }
 
-.glass-search::placeholder{
-  color:rgba(255,255,255,0.65);
-}
-
-.glass-search:focus{
-  border:1px solid rgba(255,255,255,0.45);
-}
-
-/* Proxy container */
-#proxy-container{
-  width:100%;
-  height:80vh;
-  border-top:1px solid #333;
-  overflow:auto;
-  background:#0f0f0f;
-  color:white;
-}
+#proxy-container{ width:100%; height:80vh; border-top:1px solid #333; overflow:auto; background:#0f0f0f; color:white; }
 </style>
 </head>
-
 <body>
 
 <div class="glass-search-container">
   <form class="glass-form" onsubmit="goProxy(event)">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search the web..."
-      class="glass-search"
-    />
+    <input type="text" id="searchInput" placeholder="Search the web..." class="glass-search" />
   </form>
 </div>
 
-<!-- Container where the proxied content will appear -->
 <div id="proxy-container"></div>
 
 <script src="script.js"></script>
