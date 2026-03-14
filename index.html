@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>proxy</title>
+<title>Proxy Search</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500&display=swap" rel="stylesheet">
 
@@ -75,14 +75,13 @@ body{
   border:1px solid rgba(255,255,255,0.45);
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="glass-search-container">
   <form class="glass-form" onsubmit="goProxy(event)">
-    <input 
+    <input
       type="text"
       id="searchInput"
       placeholder="Search the web..."
@@ -91,26 +90,7 @@ body{
   </form>
 </div>
 
-<script>
-
-function goProxy(e){
-  e.preventDefault()
-
-  let input = document.getElementById("searchInput").value.trim()
-  if(!input) return
-
-  let url
-
-  if(input.includes(".") && !input.includes(" ")){
-    url = input.startsWith("http") ? input : "https://" + input
-  } else {
-    url = "https://www.google.com/search?q=" + encodeURIComponent(input)
-  }
-
-  window.location.href = "/proxy?url=" + encodeURIComponent(url)
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
