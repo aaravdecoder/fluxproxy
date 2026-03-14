@@ -16,5 +16,5 @@ function goProxy(e){
   }
 
   // Send request to proxy
-  window.location.href = "/proxy?url=" + encodeURIComponent(url);
+  window.location.href = "https://fluxworker.aarav-rawat1209.workers.dev/proxy?url=" + encodeURIComponent(url);
 }
